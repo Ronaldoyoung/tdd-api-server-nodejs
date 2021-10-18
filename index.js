@@ -1,9 +1,18 @@
-const fs = require('fs');
+const express = require('express');
+const morgan = require('morgan');
+const app = express();
+let users = [
+  { id: 1, name: 'alice' },
+  { id: 2, name: 'bak' },
+  { id: 3, name: 'chris' },
+];
 
-// const data = fs.readFileSync('./data.txt', 'utf-8');
+app.use(morgan('dev'));
 
-const data = fs.readFile('./data.txt', 'utf-8', (err, data) => {
-  console.log('1 : ', data);
-})
+app.get('/users', (req, res) => {
+  res.json(users);
+});
 
-console.log('2 : ', data);
+app.listen(3000, () => {
+  console.log('Server is running');
+});
