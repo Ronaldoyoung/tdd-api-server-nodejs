@@ -67,4 +67,12 @@ describe('DELETE /users/1', () => {
         .end(done);
     })
   })
-})
+  describe('실패 시', (done) => {
+    it('id 가 숫자가 아닐 경우 400 으로 응답한다.', done => {
+      request(app)
+        .delete('/users/won')
+        .expect(400)
+        .end(done);
+    })
+  })
+});
