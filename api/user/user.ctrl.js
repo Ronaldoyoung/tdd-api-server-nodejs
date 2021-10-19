@@ -1,8 +1,4 @@
-let users = [
-  { id: 1, name: 'alice' },
-  { id: 2, name: 'bak' },
-  { id: 3, name: 'chris' },
-];
+const models = require('../../models');
 
 // api 로직
 const index = (req, res) => {
@@ -11,7 +7,9 @@ const index = (req, res) => {
   if (Number.isNaN(limit)) {
     return res.status(400).end();
   }
-  res.json(users.slice(0, limit));
+
+  models.User.findAll({})
+    .then(users => { res.json(users) })
 };
 
 const show = (req, res) => {
