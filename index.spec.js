@@ -111,8 +111,8 @@ describe('POST /users', () => {
         .send({ name: 'daniel' })
         .expect(409)
         .end(done)
-    })
-  })
+    });
+  });
 });
 
 describe('PUT /users/:id', () => {
@@ -125,8 +125,8 @@ describe('PUT /users/:id', () => {
         .end((err, res) => {
           res.body.should.have.property('name', name);
           done();
-        })
-    })
+        });
+    });
   });
   describe('실패 시', () => {
     it('정수가 아닌 id 일 경우 400 을 응답한다.', done => {
@@ -145,16 +145,16 @@ describe('PUT /users/:id', () => {
     it('없는 user 일 경우 404 를 응답한다.', done => {
       request(app)
         .put('/users/999')
-        .send({name:'foo'})
+        .send({ name: 'foo' })
         .expect(404)
         .end(done)
     });
     it('이름이 중복일 경우 409를 응답한다.', done => {
       request(app)
         .put('/users/3')
-        .send({name: 'bak'})
+        .send({ name: 'bak' })
         .expect(409)
         .end(done)
     });
-  })
-})
+  });
+});
