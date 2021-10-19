@@ -40,7 +40,7 @@ describe('GET /users는', () => {
   })
 });
 
-describe.only('GET /users/:id 는', () => {
+describe('GET /users/:id 는', () => {
   describe('성공시', () => {
     it('id 가 1인 유저 객체를 반환한다.', (done) => {
       request(app)
@@ -67,7 +67,7 @@ describe.only('GET /users/:id 는', () => {
   })
 });
 
-describe('DELETE /users/:id', () => {
+describe.only('DELETE /users/:id', () => {
   describe('성공 시', () => {
     it('204를 응답한다.', (done) => {
       request(app)
