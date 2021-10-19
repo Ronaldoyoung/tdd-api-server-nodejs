@@ -8,7 +8,10 @@ const index = (req, res) => {
     return res.status(400).end();
   }
 
-  models.User.findAll({})
+  models.User
+    .findAll({
+      limit: limit
+    })
     .then(users => { res.json(users) })
 };
 
