@@ -100,7 +100,7 @@ describe('DELETE /users/:id', () => {
   })
 });
 
-describe.only('POST /users', () => {
+describe('POST /users', () => {
   const users = [
     { name: 'alice' },
     { name: 'bak' },
